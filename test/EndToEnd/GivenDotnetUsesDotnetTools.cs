@@ -6,12 +6,12 @@ namespace EndToEnd
 {
     public class GivenDotnetUsesDotnetTools : TestBase
     {
-        [Fact]
-        public void ThenOneDotnetToolsCanBeCalled()
-        {
-            new DotnetCommand()
-                .ExecuteWithCapturedOutput("dev-certs --help")
-                    .Should().Pass();
-        }
+        //[Fact]
+        //public void ThenOneDotnetToolsCanBeCalled()
+        //{
+        //    new DotnetCommand()
+        //        .ExecuteWithCapturedOutput("dev-certs --help")
+        //            .Should().Pass();
+        //}
     }
 }

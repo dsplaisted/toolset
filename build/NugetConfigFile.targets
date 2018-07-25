@@ -22,6 +22,7 @@
     <add key="aspnetcore-release" value="https://dotnet.myget.org/F/aspnetcore-release/api/v3/index.json" />
     <add key="aspnetcore-dev" value="https://dotnet.myget.org/F/aspnetcore-dev/api/v3/index.json" />
     <add key="dotnet-core" value="https://dotnet.myget.org/F/dotnet-core/api/v3/index.json" />
+    <add key="dotnet-buildtools" value="https://dotnet.myget.org/F/dotnet-buildtools/api/v3/index.json" />
     <add key="roslyn" value="https://dotnet.myget.org/f/roslyn/api/v3/index.json" />
     <add key="nuget-build" value="https://dotnet.myget.org/F/nuget-build/api/v3/index.json" />
     <add key="api.nuget.org" value="https://api.nuget.org/v3/index.json" />
@@ -30,6 +31,7 @@
     <add key="dotnet-msbuild" value="https://dotnet.myget.org/F/msbuild/api/v3/index.json" />
     <add key="dotnet-cli" value="https://dotnet.myget.org/F/dotnet-cli/api/v3/index.json" />
     <add key="dotnet-core" value="https://dotnet.myget.org/F/dotnet-core/api/v3/index.json"/>
+    <add key="local sdk" value="$(RepoRoot)..\dotnet-sdk\artifacts\Debug\packages" />
         ]]>
       </NugetConfigCLIFeeds>
 

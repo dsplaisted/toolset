@@ -7,6 +7,7 @@ using System.Xml.Linq;
 using FluentAssertions;
 using Microsoft.DotNet.TestFramework;
 using Microsoft.DotNet.Tools.Test.Utilities;
+using System.Runtime.InteropServices;
 using NuGet.ProjectModel;
 using NuGet.Versioning;
 using Xunit;
@@ -96,7 +97,7 @@ namespace EndToEnd
                 ?.Version;
         }
 
-        [Fact]
+        [Fact(Skip="No templates")]
         public void WeCoverLatestNetCoreAppRollForward()
         {
             //  Run "dotnet new console", get TargetFramework property, and make sure it's covered in SupportedNetCoreAppVersions
@@ -129,13 +130,26 @@ namespace EndToEnd
         {
             get
             {
-                return new[]
-                {
-                    "1.0",
-                    "1.1",
-                    "2.0",
-                    "2.1"
-                }.Select(version => new object[] { version });
+                var versions = new List<string>();
+
+                // Runtime 1.x deosn't support openSUSE and Fedora 27, so skip testing those versions on Linux
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {                    
+                    versions.AddRange(new[]
+                    {
+                        "1.0",
+                        "1.1",
+                    });
+                }
+
+                versions.AddRange(new[]
+                    {
+                        "2.0",
+                        "2.1",
+                        "3.0"
+                    });
+
+                return versions.Select(version => new object[] { version });
             }
         }
     }

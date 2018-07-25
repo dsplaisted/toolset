@@ -13,6 +13,7 @@ namespace Microsoft.DotNet.Cli.Build
     {
         public DotNetTool()
         {
+            this.LogStandardErrorAsError = true;
         }
 
         protected abstract string Command { get; }

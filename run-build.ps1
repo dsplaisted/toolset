@@ -90,8 +90,8 @@ if($Architecture.StartsWith("arm", [StringComparison]::OrdinalIgnoreCase))
     $InstallArchitecture = "x64"
 }
 
-Write-Output "$dotnetInstallPath -version ""2.2.0-preview1-007799"" -InstallDir $env:DOTNET_INSTALL_DIR -Architecture ""$InstallArchitecture"""
-Invoke-Expression "$dotnetInstallPath -version ""2.2.0-preview1-007799"" -InstallDir $env:DOTNET_INSTALL_DIR -Architecture ""$InstallArchitecture"""
+Write-Output "$dotnetInstallPath -version ""3.0.100-alpha1-009105"" -InstallDir $env:DOTNET_INSTALL_DIR -Architecture ""$InstallArchitecture"""
+Invoke-Expression "$dotnetInstallPath -version ""3.0.100-alpha1-009105"" -InstallDir $env:DOTNET_INSTALL_DIR -Architecture ""$InstallArchitecture"""
 
 if ($LastExitCode -ne 0)
 {
@@ -109,6 +109,6 @@ if ($NoBuild)
 else
 {
     dotnet msbuild build.proj /p:Architecture=$Architecture /p:GeneratePropsFile=true /t:WriteDynamicPropsToStaticPropsFiles $ExtraParametersNoTargets
-    dotnet msbuild build.proj /m /v:normal /fl /flp:v=diag /p:Architecture=$Architecture $ExtraParameters
+    dotnet msbuild build.proj /m /v:normal /fl /flp:v=diag /bl /p:Architecture=$Architecture $ExtraParameters
     if($LASTEXITCODE -ne 0) { throw "Failed to build" } 
 }
